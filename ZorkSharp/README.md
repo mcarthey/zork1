@@ -162,6 +162,36 @@ This implementation includes:
 - Spell system
 - Full Zork I puzzle implementation
 
+## Stub Architecture for Future Development
+
+While the core game is functional, **stub architectures** have been created for advanced features that are not yet fully implemented. These stubs provide:
+
+- ✅ **Complete interfaces** following SOLID principles
+- ✅ **Abstract base classes** with common functionality
+- ✅ **Integration points** with existing systems
+- ✅ **Clear TODO markers** for what needs implementation
+- ✅ **Example implementations** showing usage patterns
+
+### Available Stub Systems
+
+1. **Combat System** (`Combat/`) - Combat engine, combatants, weapons
+2. **NPC System** (`NPCs/`) - NPC AI, behaviors, state machines
+3. **Save/Load System** (`Persistence/`) - Game state persistence
+4. **Puzzle Framework** (`Puzzles/`) - Puzzle management and solving
+5. **Death & Victory** (`Core/IGameConditions.cs`) - Win/lose conditions
+6. **Advanced Parser** (`Parser/IParserExtensions.cs`) - Pronouns, multi-object, disambiguation
+7. **Light/Battery System** (`Systems/`) - Lamp battery, darkness, Grue threat
+
+Each stub includes:
+- Interface definitions
+- Partial implementations
+- Usage examples
+- Integration guidance
+
+See **[STUB_ARCHITECTURE.md](STUB_ARCHITECTURE.md)** for detailed documentation on how to implement these systems.
+
+See **[TODO.md](TODO.md)** for a complete list of missing features and content.
+
 ## Technical Highlights
 
 ### Design Patterns Used
