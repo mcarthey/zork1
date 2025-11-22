@@ -1,0 +1,139 @@
+{
+  "objects": [
+    {
+      "id": "MAILBOX",
+      "name": "small mailbox",
+      "description": "A small mailbox. It is closed.",
+      "synonyms": ["mailbox", "box"],
+      "adjectives": ["small"],
+      "flags": ["Visible", "Container", "Openable"],
+      "size": 5,
+      "capacity": 10,
+      "location": "WEST-OF-HOUSE"
+    },
+    {
+      "id": "LEAFLET",
+      "name": "leaflet",
+      "description": "\"WELCOME TO ZORK!\n\nZORK is a game of adventure, danger, and low cunning. In it you will explore some of the most amazing territory ever seen by mortals. No computer should be without one!\"",
+      "synonyms": ["leaflet", "pamphlet", "mail"],
+      "adjectives": [],
+      "flags": ["Takeable", "Visible", "Readable"],
+      "size": 2,
+      "value": 0,
+      "location": "MAILBOX"
+    },
+    {
+      "id": "LANTERN",
+      "name": "brass lantern",
+      "description": "A battery-powered brass lantern.",
+      "synonyms": ["lantern", "lamp", "light"],
+      "adjectives": ["brass"],
+      "flags": ["Takeable", "Visible", "Light"],
+      "size": 5,
+      "value": 0,
+      "location": "LIVING-ROOM"
+    },
+    {
+      "id": "SWORD",
+      "name": "elvish sword",
+      "description": "A sword of Elvish workmanship.",
+      "synonyms": ["sword", "blade"],
+      "adjectives": ["elvish", "elven"],
+      "flags": ["Takeable", "Visible", "Weapon"],
+      "size": 6,
+      "value": 0,
+      "location": "LIVING-ROOM"
+    },
+    {
+      "id": "ROPE",
+      "name": "rope",
+      "description": "A large coil of rope.",
+      "synonyms": ["rope", "coil"],
+      "adjectives": ["large"],
+      "flags": ["Takeable", "Visible"],
+      "size": 8,
+      "value": 0,
+      "location": "ATTIC"
+    },
+    {
+      "id": "TROPHY-CASE",
+      "name": "trophy case",
+      "description": "An antique trophy case, quite useful for storing valuables.",
+      "synonyms": ["case", "trophy"],
+      "adjectives": ["trophy", "antique"],
+      "flags": ["Visible", "Container", "Surface"],
+      "size": 100,
+      "capacity": 200,
+      "value": 0,
+      "location": "LIVING-ROOM"
+    },
+    {
+      "id": "RUG",
+      "name": "oriental rug",
+      "description": "A beautiful oriental rug. There appears to be something under it.",
+      "synonyms": ["rug", "carpet"],
+      "adjectives": ["oriental", "beautiful", "large"],
+      "flags": ["Visible"],
+      "size": 50,
+      "value": 0,
+      "location": "LIVING-ROOM"
+    },
+    {
+      "id": "TABLE",
+      "name": "table",
+      "description": "A wooden kitchen table.",
+      "synonyms": ["table"],
+      "adjectives": ["wooden", "kitchen"],
+      "flags": ["Visible", "Surface"],
+      "size": 100,
+      "capacity": 50,
+      "value": 0,
+      "location": "KITCHEN"
+    },
+    {
+      "id": "WINDOW",
+      "name": "window",
+      "description": "A small window, slightly ajar.",
+      "synonyms": ["window"],
+      "adjectives": ["small"],
+      "flags": ["Visible", "Openable", "IsOpen"],
+      "size": 100,
+      "value": 0,
+      "location": "KITCHEN"
+    },
+    {
+      "id": "SACK",
+      "name": "brown sack",
+      "description": "A large brown sack, smelling of hot peppers.",
+      "synonyms": ["sack", "bag"],
+      "adjectives": ["brown", "large"],
+      "flags": ["Takeable", "Visible", "Container", "IsOpen"],
+      "size": 8,
+      "capacity": 20,
+      "value": 0,
+      "location": "KITCHEN"
+    },
+    {
+      "id": "GARLIC",
+      "name": "clove of garlic",
+      "description": "A clove of garlic.",
+      "synonyms": ["garlic", "clove"],
+      "adjectives": [],
+      "flags": ["Takeable", "Visible"],
+      "size": 2,
+      "value": 0,
+      "location": "SACK"
+    },
+    {
+      "id": "LUNCH",
+      "name": "lunch",
+      "description": "A hot pepper sandwich on a sesame seed bun.",
+      "synonyms": ["lunch", "sandwich", "food"],
+      "adjectives": ["hot", "pepper"],
+      "flags": ["Takeable", "Visible", "Edible"],
+      "size": 3,
+      "value": 0,
+      "location": "SACK"
+    }
+  ]
+}

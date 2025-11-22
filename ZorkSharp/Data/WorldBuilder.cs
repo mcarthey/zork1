@@ -2,25 +2,97 @@ namespace ZorkSharp.Data;
 
 using ZorkSharp.Core;
 using ZorkSharp.World;
+using Microsoft.Extensions.Logging;
 
 /// <summary>
 /// Builds the game world data
-/// This is a representative sample of the Zork I world
+/// Can load from JSON files or use hardcoded fallback data
 /// </summary>
 public class WorldBuilder
 {
     private readonly GameWorld _world;
+    private readonly IDataLoader? _dataLoader;
+    private readonly ILogger<WorldBuilder>? _logger;
+    private readonly string? _dataDirectory;
 
-    public WorldBuilder(GameWorld world)
+    public WorldBuilder(GameWorld world, IDataLoader? dataLoader = null, ILogger<WorldBuilder>? logger = null, string? dataDirectory = null)
     {
         _world = world;
+        _dataLoader = dataLoader;
+        _logger = logger;
+        _dataDirectory = dataDirectory ?? "Data";
     }
 
     public void BuildWorld()
     {
+        // Try to load from JSON first
+        if (_dataLoader != null && TryLoadFromJson())
+        {
+            _logger?.LogInformation("World loaded from JSON data files");
+            return;
+        }
+
+        // Fall back to hardcoded data
+        _logger?.LogInformation("Loading world from hardcoded data (JSON not available)");
         CreateRooms();
         CreateObjects();
         PlaceObjects();
+    }
+
+    private bool TryLoadFromJson()
+    {
+        try
+        {
+            var roomsPath = Path.Combine(_dataDirectory!, "rooms.json");
+            var objectsPath = Path.Combine(_dataDirectory!, "objects.json");
+
+            if (!File.Exists(roomsPath) || !File.Exists(objectsPath))
+            {
+                _logger?.LogWarning("JSON data files not found in {DataDirectory}", _dataDirectory);
+                return false;
+            }
+
+            _dataLoader!.LoadRooms(_world, roomsPath);
+            _dataLoader.LoadObjects(_world, objectsPath);
+
+            // Place objects in their starting locations
+            PlaceObjectsFromJson();
+
+            return true;
+        }
+        catch (Exception ex)
+        {
+            _logger?.LogError(ex, "Error loading world from JSON, falling back to hardcoded data");
+            return false;
+        }
+    }
+
+    private void PlaceObjectsFromJson()
+    {
+        // Objects from JSON already have their locations set
+        // Just need to ensure they're properly placed in rooms/containers
+        foreach (var kvp in _world.GetType().GetField("_objects", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance)
+            ?.GetValue(_world) as Dictionary<string, IGameObject> ?? new Dictionary<string, IGameObject>())
+        {
+            var obj = kvp.Value;
+            if (obj.LocationId != null)
+            {
+                var room = _world.GetRoom(obj.LocationId);
+                if (room != null && !room.Items.Contains(obj.Id))
+                {
+                    room.Items.Add(obj.Id);
+                }
+                else
+                {
+                    // Location might be a container
+                    var container = _world.GetObject(obj.LocationId);
+                    if (container != null && !container.Contents.Contains(obj.Id))
+                    {
+                        container.Contents.Add(obj.Id);
+                    }
+                }
+            }
+        }
     }
 
     private void CreateRooms()
