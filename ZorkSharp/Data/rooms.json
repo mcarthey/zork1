@@ -1,0 +1,163 @@
+{
+  "rooms": [
+    {
+      "id": "WEST-OF-HOUSE",
+      "name": "West of House",
+      "description": "You are standing in an open field west of a white house, with a boarded front door.",
+      "longDescription": "You are standing in an open field west of a white house, with a boarded front door.\nThere is a small mailbox here.",
+      "flags": ["Light", "Outside"],
+      "exits": {
+        "North": "NORTH-OF-HOUSE",
+        "South": "SOUTH-OF-HOUSE",
+        "West": "FOREST-1",
+        "East": {
+          "message": "The door is boarded and you can't remove the boards."
+        }
+      },
+      "globalItems": ["WHITE-HOUSE", "BOARD"]
+    },
+    {
+      "id": "NORTH-OF-HOUSE",
+      "name": "North of House",
+      "description": "You are facing the north side of a white house.",
+      "longDescription": "You are facing the north side of a white house. There is no door here, and all the windows are boarded up. To the north a narrow path winds through the trees.",
+      "flags": ["Light", "Outside"],
+      "exits": {
+        "North": "FOREST-2",
+        "South": "WEST-OF-HOUSE",
+        "East": "BEHIND-HOUSE",
+        "West": "WEST-OF-HOUSE"
+      }
+    },
+    {
+      "id": "SOUTH-OF-HOUSE",
+      "name": "South of House",
+      "description": "You are facing the south side of a white house.",
+      "longDescription": "You are facing the south side of a white house. There is no door here, and all the windows are boarded.",
+      "flags": ["Light", "Outside"],
+      "exits": {
+        "North": "WEST-OF-HOUSE",
+        "South": "FOREST-3",
+        "East": "BEHIND-HOUSE",
+        "West": "WEST-OF-HOUSE"
+      }
+    },
+    {
+      "id": "BEHIND-HOUSE",
+      "name": "Behind House",
+      "description": "You are behind the white house.",
+      "longDescription": "You are behind the white house. A path leads into the forest to the east. In one corner of the house there is a small window which is slightly ajar.",
+      "flags": ["Light", "Outside"],
+      "exits": {
+        "North": "NORTH-OF-HOUSE",
+        "South": "SOUTH-OF-HOUSE",
+        "East": "CLEARING",
+        "West": "NORTH-OF-HOUSE",
+        "In": "KITCHEN"
+      }
+    },
+    {
+      "id": "KITCHEN",
+      "name": "Kitchen",
+      "description": "You are in the kitchen of the white house.",
+      "longDescription": "You are in the kitchen of the white house. A table seems to have been used recently for the preparation of food. A passage leads to the west and a dark staircase can be seen leading upward. A dark chimney leads down and to the east is a small window which is open.",
+      "flags": ["Light"],
+      "exits": {
+        "West": "LIVING-ROOM",
+        "Up": "ATTIC",
+        "Down": {
+          "message": "You would need to be smaller to fit down the chimney."
+        },
+        "Out": "BEHIND-HOUSE"
+      }
+    },
+    {
+      "id": "LIVING-ROOM",
+      "name": "Living Room",
+      "description": "You are in the living room.",
+      "longDescription": "You are in the living room. There is a doorway to the east, a wooden door with strange gothic lettering to the west, which appears to be nailed shut, a trophy case, and a large oriental rug in the center of the room.",
+      "flags": ["Light"],
+      "exits": {
+        "East": "KITCHEN",
+        "West": {
+          "message": "The door is nailed shut."
+        },
+        "Down": "CELLAR"
+      }
+    },
+    {
+      "id": "CELLAR",
+      "name": "Cellar",
+      "description": "You are in a dark and damp cellar.",
+      "longDescription": "You are in a dark and damp cellar with a narrow passageway leading north, and a crawlway to the south. On the west is the bottom of a steep metal ramp which is unclimbable.",
+      "flags": [],
+      "exits": {
+        "North": "TROLL-ROOM",
+        "South": "MAZE-1",
+        "Up": "LIVING-ROOM"
+      }
+    },
+    {
+      "id": "ATTIC",
+      "name": "Attic",
+      "description": "This is the attic.",
+      "longDescription": "This is the attic. The only exit is a stairway leading down.",
+      "flags": ["Light"],
+      "exits": {
+        "Down": "KITCHEN"
+      }
+    },
+    {
+      "id": "FOREST-1",
+      "name": "Forest",
+      "description": "This is a forest.",
+      "longDescription": "This is a forest, with trees in all directions. To the east, there appears to be sunlight.",
+      "flags": ["Light", "Outside"],
+      "exits": {
+        "East": "WEST-OF-HOUSE",
+        "North": "FOREST-2",
+        "South": "FOREST-3",
+        "West": "FOREST-1"
+      }
+    },
+    {
+      "id": "FOREST-2",
+      "name": "Forest",
+      "description": "This is a dimly lit forest.",
+      "longDescription": "This is a dimly lit forest, with large trees all around.",
+      "flags": ["Light", "Outside"],
+      "exits": {
+        "South": "NORTH-OF-HOUSE",
+        "North": "FOREST-2",
+        "East": "FOREST-2",
+        "West": "FOREST-1"
+      }
+    },
+    {
+      "id": "FOREST-3",
+      "name": "Forest",
+      "description": "This is a dimly lit forest.",
+      "longDescription": "This is a dimly lit forest, with large trees all around.",
+      "flags": ["Light", "Outside"],
+      "exits": {
+        "North": "SOUTH-OF-HOUSE",
+        "South": "FOREST-3",
+        "East": "FOREST-3",
+        "West": "FOREST-1"
+      }
+    },
+    {
+      "id": "CLEARING",
+      "name": "Clearing",
+      "description": "You are in a clearing.",
+      "longDescription": "You are in a clearing, with a forest surrounding you on all sides. A path leads south.",
+      "flags": ["Light", "Outside"],
+      "exits": {
+        "South": "BEHIND-HOUSE",
+        "North": "FOREST-2",
+        "East": "FOREST-2",
+        "West": "FOREST-2"
+      }
+    }
+  ]
+}
