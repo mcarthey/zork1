@@ -1,5 +1,7 @@
 namespace ZorkSharp.Parser;
 
+using ZorkSharp.Core;
+
 /// <summary>
 /// Natural language parser for game commands
 /// </summary>
