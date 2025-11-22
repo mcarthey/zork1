@@ -21,7 +21,8 @@ public class GameObject : IGameObject
     public string? ActionHandler { get; set; }
 
     public bool HasFlag(ObjectFlags flag) => (Flags & flag) != 0;
-
+    public void SetFlag(ObjectFlags flag) => Flags |= flag;
+    public void ClearFlag(ObjectFlags flag) => Flags &= ~flag;
     public bool IsContainer => HasFlag(ObjectFlags.Container);
     public bool IsTakeable => HasFlag(ObjectFlags.Takeable);
     public bool IsVisible => HasFlag(ObjectFlags.Visible);

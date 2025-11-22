@@ -21,6 +21,8 @@ public interface IGameObject
     string? ActionHandler { get; }
 
     bool HasFlag(ObjectFlags flag);
+    void SetFlag(ObjectFlags flag);
+    void ClearFlag(ObjectFlags flag);
     bool IsContainer { get; }
     bool IsTakeable { get; }
     bool IsVisible { get; }

@@ -56,6 +56,7 @@ public class GameEngine : IGameEngine
         CommandFactory.RegisterCommand(new DropCommand());
         CommandFactory.RegisterCommand(new QuitCommand());
         CommandFactory.RegisterCommand(new ScoreCommand());
+        CommandFactory.RegisterCommand(new OpenCommand());
         CommandFactory.RegisterCommand(new HelpCommand(CommandFactory));
     }
 
