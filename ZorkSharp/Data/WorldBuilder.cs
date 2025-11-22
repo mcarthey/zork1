@@ -501,7 +501,7 @@ public class WorldBuilder
             Name = "leaflet",
             Description = "\"WELCOME TO ZORK!\n\nZORK is a game of adventure, danger, and low cunning. In it you will explore some of the most amazing territory ever seen by mortals. No computer should be without one!\"",
             Synonyms = new[] { "leaflet", "pamphlet", "mail" },
-            Adjectives = new[] { },
+            Adjectives = Array.Empty<string>(),
             Flags = ObjectFlags.Takeable | ObjectFlags.Visible | ObjectFlags.Readable,
             Size = 2,
             Value = 0
@@ -607,7 +607,7 @@ public class WorldBuilder
             Name = "clove of garlic",
             Description = "A clove of garlic.",
             Synonyms = new[] { "garlic", "clove" },
-            Adjectives = new[] { },
+            Adjectives = Array.Empty<string>(),
             Flags = ObjectFlags.Takeable | ObjectFlags.Visible,
             Size = 2,
             Value = 0
@@ -633,7 +633,7 @@ public class WorldBuilder
             Name = "quantity of water",
             Description = "Some water.",
             Synonyms = new[] { "water" },
-            Adjectives = new[] { },
+            Adjectives = Array.Empty<string>(),
             Flags = ObjectFlags.Takeable | ObjectFlags.Drinkable,
             Size = 4,
             Value = 0
@@ -740,7 +740,7 @@ public class WorldBuilder
             Name = "matchbook",
             Description = "A matchbook with a few matches left.",
             Synonyms = new[] { "matches", "matchbook" },
-            Adjectives = new[] { },
+            Adjectives = Array.Empty<string>(),
             Flags = ObjectFlags.Takeable | ObjectFlags.Visible,
             Size = 1,
             Value = 0
